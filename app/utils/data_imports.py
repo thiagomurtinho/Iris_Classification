@@ -1,15 +1,14 @@
-def data_extraction_row_value(DataFrame, DataCompare, ColumName):
+def extraction_colunms_value(DataFrame, DataCompare, ColumName):
   data = []
+  index = DataFrame.Species.str.contains(DataCompare)
 
-  for item in DataFrame.itertuples(index=False, name='Iris'):
-    for DataCompare in item:
-      if(ColumName == 'SepalLengthCm'):
-        data.append(item.SepalLengthCm)
-      if(ColumName == 'SepalWidthCm'):
-        data.append(item.SepalWidthCm)
-      if(ColumName == 'PetalWidthCm'):
-        data.append(item.PetalWidthCm)
-      if(ColumName == 'PetalLengthCm'):
-        data.append(item.PetalLengthCm)
+  if(ColumName == 'SepalLengthCm'):
+    data = DataFrame[index].SepalLengthCm
+  if(ColumName == 'SepalWidthCm'):
+    data = DataFrame[index].SepalWidthCm
+  if(ColumName == 'PetalWidthCm'):
+    data = DataFrame[index].PetalWidthCm
+  if(ColumName == 'PetalLengthCm'):
+    data = DataFrame[index].PetalLengthCm
 
   return data
