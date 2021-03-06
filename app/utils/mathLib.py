@@ -2,9 +2,15 @@ import numpy as np
 import scipy.linalg as la
 
 def constructor_matrix(M):
+  """
+  Building matrix
+  """
   return np.matrix(M).transpose()
 
-def least_squares(X, Y, plot=None):
+def minimum_squares(X, Y):
+  """
+  That function shows least squares of the values
+  """
   media_X = np.mean(X)
   media_Y = np.mean(Y)
   erro_x = X-media_X
@@ -30,6 +36,10 @@ def least_squares(X, Y, plot=None):
   }
 
 def plu(A):
+  """
+  This function shows PLU 
+  (permutation matrices, lower triangular and upper triangular)
+  """
   (P, L, U) = la.lu(A)
   return {
     'P': P,
@@ -38,6 +48,10 @@ def plu(A):
   }
 
 def autovalores_autovetores(A):
+  """
+  That function uses eigenvalues and eigenvectors 
+  to build the espectral decomposition
+  """
   autovalores, autovetores = np.linalg.eig(A)
   return {
     'autovalores': autovalores, 
@@ -45,9 +59,15 @@ def autovalores_autovetores(A):
   }
 
 def espectral(autovetores, matrizDiagonal):
+  """
+  Espectral Decomposition
+  """
   return np.matmul(np.matmul(autovetores,matrizDiagonal),np.linalg.inv(autovetores))
 
 def pvd(A):
+  """
+  That function return the singular values decomposition
+  """
   (U,s,V) = np.linalg.svd(A)
   return {
     'U': U,
@@ -56,6 +76,9 @@ def pvd(A):
   }
 
 def back_substitution(A, x, n):
+  """
+  That function shows back substitution values of a matrix
+  """
   b = np.dot(A, x)
   xcomp = np.zeros(n)
 

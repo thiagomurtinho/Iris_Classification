@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 
 def plot(X, Y, ajust=False, line=None, line_label=None, line_color=None ):
-  #type= dot/linear
+  """
+  type= dot/linear
+  """
 
   plt.scatter(X,Y,label='Y(X)')
   plt.xlabel('X')
