@@ -7,7 +7,7 @@ def constructor_matrix(M):
   """
   return np.matrix(M).transpose()
 
-def minimum_squares(X, Y, plot=None):
+def minimum_squares(X, Y):
   """
   That function shows least squares of the values
   """
