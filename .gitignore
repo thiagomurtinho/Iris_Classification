@@ -1,4 +1,5 @@
 venv/
+tenv/
 tests/
 __pycache__/
 app/app*
